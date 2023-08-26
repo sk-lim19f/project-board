@@ -13,6 +13,7 @@ spring:
     username: Lim
     password: dlatkdrb123!
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   jpa:
     open-in-view: false
     defer-datasource-initialization: true
@@ -21,5 +22,5 @@ spring:
     properties:
       hibernate.format_sql: true
       hibernate.default_batch_fetch_size: 100
-  h2.console.enabled: true
+  h2.console.enabled: true 
   sql.init.mode: always
