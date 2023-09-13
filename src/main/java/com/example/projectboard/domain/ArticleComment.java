@@ -5,7 +5,6 @@ import lombok.Setter;
 import lombok.ToString;
 
 import jakarta.persistence.*;
-
 import java.util.Objects;
 
 @Getter
