@@ -102,7 +102,7 @@ class JpaRepositoryTest {
     public static class TestJpaConfig {
         @Bean
         public AuditorAware<String> auditorAware() {
-            return () -> Optional.of("uno");
+            return () -> Optional.of("Lim");
         }
     }
 

@@ -1,6 +1,5 @@
 package com.example.projectboard.controller;
 
-import com.example.projectboard.config.SecurityConfig;
 import com.example.projectboard.config.TestSecurityConfig;
 import com.example.projectboard.domain.constant.FormStatus;
 import com.example.projectboard.domain.constant.SearchType;
@@ -46,10 +45,12 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ArticleControllerTest {
 
     private final MockMvc mvc;
+
     private final FormDataEncoder formDataEncoder;
 
     @MockBean private ArticleService articleService;
     @MockBean private PaginationService paginationService;
+
 
     public ArticleControllerTest(
             @Autowired MockMvc mvc,
@@ -246,7 +247,7 @@ class ArticleControllerTest {
                 .andExpect(model().attribute("formStatus", FormStatus.CREATE));
     }
 
-    @WithUserDetails(value = "unoTest", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithUserDetails(value = "LimTest", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("[view][POST] 새 게시글 등록 - 정상 호출")
     @Test
     void givenNewArticleInfo_whenRequesting_thenSavesNewArticle() throws Exception {
@@ -299,7 +300,7 @@ class ArticleControllerTest {
         then(articleService).should().getArticle(articleId);
     }
 
-    @WithUserDetails(value = "unoTest", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithUserDetails(value = "LimTest", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("[view][POST] 게시글 수정 - 정상 호출")
     @Test
     void givenUpdatedArticleInfo_whenRequesting_thenUpdatesNewArticle() throws Exception {
@@ -321,13 +322,13 @@ class ArticleControllerTest {
         then(articleService).should().updateArticle(eq(articleId), any(ArticleDto.class));
     }
 
-    @WithUserDetails(value = "unoTest", setupBefore = TestExecutionEvent.TEST_EXECUTION)
+    @WithUserDetails(value = "LimTest", setupBefore = TestExecutionEvent.TEST_EXECUTION)
     @DisplayName("[view][POST] 게시글 삭제 - 정상 호출")
     @Test
     void givenArticleIdToDelete_whenRequesting_thenDeletesArticle() throws Exception {
         // Given
         long articleId = 1L;
-        String userId = "unoTest";
+        String userId = "LimTest";
         willDoNothing().given(articleService).deleteArticle(articleId, userId);
 
         // When & Then
@@ -361,23 +362,23 @@ class ArticleControllerTest {
                 "content",
                 "#java",
                 LocalDateTime.now(),
-                "uno",
+                "Lim",
                 LocalDateTime.now(),
-                "uno"
+                "Lim"
         );
     }
 
     private UserAccountDto createUserAccountDto() {
         return UserAccountDto.of(
-                "uno",
+                "Lim",
                 "pw",
-                "uno@mail.com",
-                "Uno",
+                "Lim@mail.com",
+                "Lim",
                 "memo",
                 LocalDateTime.now(),
-                "uno",
+                "Lim",
                 LocalDateTime.now(),
-                "uno"
+                "Lim"
         );
     }
 
