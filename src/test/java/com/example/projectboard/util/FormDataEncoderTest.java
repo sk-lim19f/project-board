@@ -2,6 +2,7 @@ package com.example.projectboard.util;
 
 import com.example.projectboard.ProjectBoardApplication;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ import static org.assertj.core.api.Assertions.*;
 
 @DisplayName("테스트 도구 - Form 데이터 인코더")
 @Import({FormDataEncoder.class, ObjectMapper.class})
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = ProjectBoardApplication.class)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE, classes = void.class)
 class FormDataEncoderTest {
 
     private final FormDataEncoder formDataEncoder;
