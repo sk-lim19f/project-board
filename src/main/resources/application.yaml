@@ -27,3 +27,7 @@ spring:
     detection-strategy: annotated
   thymeleaf3.decoupled-logic: true
 
+server:
+  address: 0.0.0.0
+  port: 80
+
